@@ -1,8 +1,15 @@
 import { takeLatest, put } from "redux-saga/effects";
 import * as types from "../actions/Types";
 import { login } from "./api/Authen";
-
+import * as configConstant from "../config/ConfigConstant";
 function* doLogin(action) {
+  if (configConstant.FAKE) {
+    yield put({
+      type: types.LOGIN_SUCCESS,
+      response: { data: { email: "test" } }
+    });
+    return;
+  }
   try {
     let param = {
       email: action.user,
