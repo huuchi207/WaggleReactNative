@@ -1,7 +1,7 @@
 import * as types from "./Types";
 
-export const resetApiError = () => {
+export const requestApiError = () => {
   return {
-    type: types.RESET_API_ERROR
+    type: types.REQUEST_API_ERROR
   };
 };

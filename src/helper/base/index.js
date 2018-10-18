@@ -9,10 +9,10 @@ export default class BaseComponent extends React.Component {
   }
 
   render() {
-    console.log("ahihi do ngu", this.props);
+    console.log("props of class", this.props);
     if (this.props.error) {
       Global.showError(this.props.error);
-      this.props.onResetError();
+      this.props.onRequestError();
     }
     return <View style={{ flex: 1 }} />;
   }

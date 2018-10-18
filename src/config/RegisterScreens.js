@@ -4,6 +4,7 @@ import MyWaggles from "../screens/Waggle/MyWaggles";
 import Login from "../screens/Authen/Login";
 import Profile from "../screens/MyProfile/Profile";
 import BaseComponent from "../helper/base";
+import Test from "../screens/Test";
 
 export function registerScreens(store, Provider) {
   const screensArray = [
@@ -22,6 +23,10 @@ export function registerScreens(store, Provider) {
     {
       key: Constants.kMyProfile,
       value: Profile
+    },
+    {
+      key: Constants.kTest,
+      value: Test
     }
   ];
   screensArray.forEach(function(item, index) {

@@ -1,7 +1,7 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Component } from "react";
+import PropTypes from "prop-types";
 
-import { Animated, Text, View, ViewPropTypes } from 'react-native';
+import { Animated, Text, View, ViewPropTypes } from "react-native";
 
 export default class BaseInput extends Component {
   static propTypes = {
@@ -22,7 +22,7 @@ export default class BaseInput extends Component {
      */
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
-    onChange: PropTypes.func,
+    onChange: PropTypes.func
   };
 
   constructor(props, context) {
@@ -38,15 +38,15 @@ export default class BaseInput extends Component {
 
     this.state = {
       value,
-      focusedAnim: new Animated.Value(value ? 1 : 0),
+      focusedAnim: new Animated.Value(value ? 1 : 0)
     };
   }
 
   componentWillReceiveProps(newProps) {
     const newValue = newProps.value;
-    if (newProps.hasOwnProperty('value') && newValue !== this.state.value) {
+    if (newProps.hasOwnProperty("value") && newValue !== this.state.value) {
       this.setState({
-        value: newValue,
+        value: newValue
       });
 
       // animate input if it's active state has changed with the new value
@@ -63,13 +63,13 @@ export default class BaseInput extends Component {
 
   _onLayout(event) {
     this.setState({
-      width: event.nativeEvent.layout.width,
+      width: event.nativeEvent.layout.width
     });
   }
 
   _onChange(event) {
     this.setState({
-      value: event.nativeEvent.text,
+      value: event.nativeEvent.text
     });
 
     const onChange = this.props.onChange;
@@ -105,7 +105,7 @@ export default class BaseInput extends Component {
       toValue: isActive ? 1 : 0,
       duration: animationDuration,
       easing,
-      useNativeDriver,
+      useNativeDriver
     }).start();
   }
 

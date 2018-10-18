@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import View from "./view";
 import { loginAction, resetStateLogin } from "../../../actions/Login";
-import { resetApiError } from "../../../actions/Global";
+import { requestApiError } from "../../../actions/Global";
 
 class Login extends Component {
   render() {
@@ -23,8 +23,8 @@ const mapDispatchToProps = dispatch => {
     onLogin: (user, pass) => {
       dispatch(loginAction(user, pass));
     },
-    onResetError: () => {
-      dispatch(resetApiError());
+    onRequestError: () => {
+      dispatch(requestApiError());
     },
     onResetState: () => {
       dispatch(resetStateLogin());

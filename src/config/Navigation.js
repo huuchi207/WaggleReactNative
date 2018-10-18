@@ -37,6 +37,12 @@ export function startMainApp() {
         screen: Constants.kMyProfile,
         title: "Profile",
         icon: icProfile
+      },
+      {
+        label: "Test",
+        screen: Constants.kTest,
+        title: "Test",
+        icon: icProfile
       }
     ]
   });

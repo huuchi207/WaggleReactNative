@@ -10,6 +10,7 @@ export const kBaseComponent = "WGL.Base";
 export const kLoginScreen = "WGL.Login";
 export const kMyWagglesScreen = "WGL.MyWaggle";
 export const kMyProfile = "WGL.MyProfile";
+export const kTest = "WGL.Test";
 
 /*--------STRINGS--------*/
 

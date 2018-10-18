@@ -30,7 +30,7 @@ export default (state = INITIAL, action) => {
         loading: false,
         error: error
       };
-    case types.RESET_API_ERROR:
+    case types.REQUEST_API_ERROR:
       return {
         ...state,
         error: null,

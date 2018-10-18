@@ -1,5 +1,5 @@
 import { Alert, AsyncStorage } from "react-native";
-import { resetApiError } from "../../actions/Global";
+import { requestApiError } from "../../actions/Global";
 import { connect } from "react-redux";
 
 export function showError(content) {

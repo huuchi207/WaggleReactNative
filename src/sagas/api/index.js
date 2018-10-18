@@ -1,6 +1,21 @@
 import { AsyncStorage } from "react-native";
 import { Constants } from "../../helper";
-
+export async function GET_TEST(path) {
+  let requestUrl =
+    "http://api.openweathermap.org/data/2.5/box/city?appid=b1412ab2fc899acb1e7612034bfdf412&bbox=12,32,15,37,10";
+  try {
+    let result = await fetch(requestUrl, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      method: "GET"
+    });
+    return result.json();
+  } catch (e) {
+    return e;
+  }
+}
 export async function GET(path, param) {
   const DATA_TOKEN = await AsyncStorage.getItem(Constants.kUserToken);
   const USER_TOKEN = JSON.parse(DATA_TOKEN);
@@ -10,9 +25,13 @@ export async function GET(path, param) {
       requestURL += "?";
       let i = 0;
       for (let key in param) {
-        if (param[key] != "")
-          if (i != 0) requestURL += "&" + key + "=" + param[key];
-          else requestURL += key + "=" + param[key];
+        if (param[key] != "") {
+          if (i != 0) {
+            requestURL += "&" + key + "=" + param[key];
+          } else {
+            requestURL += key + "=" + param[key];
+          }
+        }
         i++;
       }
     }
