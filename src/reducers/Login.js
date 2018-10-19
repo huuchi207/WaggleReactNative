@@ -23,14 +23,14 @@ export default (state = INITIAL, action) => {
       return {
         INITIAL
       };
-    case types.REQUEST_API_FAIL:
+    case types.LOGIN_FAIL:
       let error = action.response.errors.message;
       return {
         ...state,
         loading: false,
         error: error
       };
-    case types.REQUEST_API_ERROR:
+    case types.LOGIN_ERROR:
       return {
         ...state,
         error: null,

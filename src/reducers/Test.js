@@ -12,11 +12,25 @@ export default (state = INITIAL, action) => {
       return {
         loading: true
       };
-    case types.REQUEST_API_SUCCESS:
-      let data = action.response.data;
+    case types.TEST_SUCCESS:
+      let data = action.response.list;
       return {
         success: data,
         error: null,
+        loading: false
+      };
+    case types.TEST_FAIL:
+      let error = action.response;
+      return {
+        ...state,
+        loading: false,
+        error: error
+      };
+    case types.TEST_ERROR:
+      return {
+        ...state,
+        error: null,
+        success: null,
         loading: false
       };
     default:

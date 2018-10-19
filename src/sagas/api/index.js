@@ -11,8 +11,9 @@ export async function GET_TEST(path) {
       },
       method: "GET"
     });
-    return result.json();
+    return await result.json();
   } catch (e) {
+    console.log(e);
     return e;
   }
 }

@@ -19,11 +19,11 @@ function* doLogin(action) {
     if (!response.error) {
       yield put({ type: types.LOGIN_SUCCESS, response: response });
     } else {
-      yield put({ type: types.REQUEST_API_FAIL, response: response });
+      yield put({ type: types.LOGIN_ERROR, response: response });
     }
   } catch (e) {
     console.log(e);
-    yield put({ type: types.REQUEST_API_FAIL });
+    yield put({ type: types.LOGIN_FAIL });
   }
 }
 

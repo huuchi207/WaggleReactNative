@@ -6,12 +6,12 @@ function* doTest(action) {
   try {
     const response = yield test("");
     if (response.error) {
-      yield put({ type: types.REQUEST_API_ERROR });
+      yield put({ type: types.TEST_ERROR, response: response });
     } else {
-      yield put({ type: types.REQUEST_API_SUCCESS });
+      yield put({ type: types.TEST_SUCCESS, response: response });
     }
   } catch (e) {
-    yield put({ type: types.REQUEST_API_FAIL });
+    yield put({ type: types.TEST_FAIL });
   }
 }
 
