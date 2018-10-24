@@ -1,22 +1,26 @@
 import React from "react";
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, Alert } from "react-native";
 import BaseComponent from "../../helper/base";
 import Loading from "../../helper/components/loading";
 import { Kohana, KeyboardScroll, AppButton, Toast } from "../../helper";
 import FlatList from "../../helper/components/keyboard-aware-scroll-view/KeyboardAwareFlatList";
+import CustomRow from "../../helper/components/item-list/itemforecast";
+const BASE_ICON_URL = "http://openweathermap.org/img/w/";
+
 class Test extends BaseComponent {
   constructor(props) {
     super(props);
   }
-
   getData() {
     this.props.onGetData();
+  }
+  showMessage() {
+    Alert.alert("You tapped the button!");
   }
   render() {
     super.render();
     return (
       <View>
-        <Text>hello world!</Text>
         {this.props.loading ? <Loading /> : null}
         <Button
           title={"Get list data"}
@@ -26,18 +30,17 @@ class Test extends BaseComponent {
         />
         {this.props.success ? (
           <FlatList
-            data={
-              // [
-              // { id: "1", name: "A" },
-              // { id: "2", name: "B" },
-              // { id: "3", name: "C" }
-            // ]
-              this.props.success
-            }
+            data={this.props.success}
             renderItem={({ item }) => (
-              <Text>
-                {item.name}
-              </Text>
+              <CustomRow
+                title={item.name}
+                description={item.weather[0].description}
+                image_url={BASE_ICON_URL + item.weather[0].icon + ".png"}
+                data={item.main.temp + " °C"}
+                onPressItem={() => {
+                  this.showMessage();
+                }}
+              />
             )}
           />
         ) : null}
