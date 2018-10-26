@@ -5,4 +5,5 @@ import test from "../reducers/Test";
 export default combineReducers({
   login,
   test
+  //TODO: add another reducer in here
 });

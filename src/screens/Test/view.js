@@ -14,8 +14,8 @@ class Test extends BaseComponent {
   getData() {
     this.props.onGetData();
   }
-  showMessage() {
-    Alert.alert("You tapped the button!");
+  showMessage(item, number) {
+    Alert.alert("You tapped the button at the position " + number);
   }
   render() {
     super.render();
@@ -31,14 +31,14 @@ class Test extends BaseComponent {
         {this.props.success ? (
           <FlatList
             data={this.props.success}
-            renderItem={({ item }) => (
+            renderItem={({ item: item, index: number }) => (
               <CustomRow
                 title={item.name}
                 description={item.weather[0].description}
                 image_url={BASE_ICON_URL + item.weather[0].icon + ".png"}
                 data={item.main.temp + " °C"}
                 onPressItem={() => {
-                  this.showMessage();
+                  this.showMessage(item, number);
                 }}
               />
             )}
