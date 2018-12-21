@@ -18,7 +18,7 @@ export function startLogin() {
       screen: Constants.kLoginScreen,
       navigatorStyle: {
         navBarHidden: true
-      }
+      },
     }
   });
 }
@@ -27,21 +27,15 @@ export function startMainApp() {
   Navigation.startTabBasedApp({
     tabs: [
       {
-        label: "MyWaggles",
+        label: "Tab1",
         screen: Constants.kMyWagglesScreen,
         title: "MyWaggles",
         icon: icMyWaggles
       },
       {
-        label: "Profile",
+        label: "Tab2",
         screen: Constants.kMyProfile,
         title: "Profile",
-        icon: icProfile
-      },
-      {
-        label: "Test",
-        screen: Constants.kTest,
-        title: "Test",
         icon: icProfile
       }
     ]

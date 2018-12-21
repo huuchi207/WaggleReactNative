@@ -15,6 +15,9 @@ export const kTest = "WGL.Test";
 /*--------STRINGS--------*/
 
 export const kUserToken = "kUserToken";
+export const kSum = "kSum";
+export const kMinus = "kMinus";
+
 
 /*-----------------------*/
 

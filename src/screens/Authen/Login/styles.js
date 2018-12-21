@@ -29,5 +29,10 @@ export default StyleSheet.create({
   titleButtonLogin: {
     fontSize: 20,
     color: "white"
-  }
+  },
+  centerView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
 });

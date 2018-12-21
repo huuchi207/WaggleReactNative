@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import View from "./view";
 import { requestApiError } from "../../../actions/Global";
+import {loginAction, onPlus} from "../../../actions/Login";
 
 class MyWaggles extends Component {
   render() {
@@ -14,7 +15,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    onPlus: (a, b) => {
+      dispatch(onPlus(a,b));
+    },};
 };
 
 export default connect(
